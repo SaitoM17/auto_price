@@ -1,7 +1,8 @@
 # 📊 Automotive Price
 # Análisis del Precio de Autómiviles
 
-Este proyecto realiza un análisis [exploratorio / predictivo / descriptivo] de [tema del proyecto]. El conjunto de datos incluye información sobre [breve descripción del contenido del dataset].
+En este proyecto se presetan un análisis exploratorio de datos y la implementación de algoritmos de aprendizaje automático al conjunto de datos [Automotive Price Prediction Dataset](https://www.kaggle.com/datasets/metawave/vehicle-price-prediction) de [Atul Kumar Choudhary](https://www.kaggle.com/metawave) con el fin de poner en practica las habilidades en el aprendizaje automático.
+
 
 ---
 
