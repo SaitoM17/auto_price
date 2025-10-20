@@ -29,12 +29,28 @@ El objetivo de este proyecto es [objetivo general del análisis], con el fin de 
 
 El conjunto de datos utilizado contiene las siguientes columnas:
 
-- `NombreColumna1`: [Descripción]
-- `NombreColumna2`: [Descripción]
-- `NombreColumna3`: [Descripción]
-- `...`
-
-Fuente: [Nombre de la fuente o “datos simulados/ficticios”].
+- ``make:`` El fabricante o marca del vehículo (por ejemplo, Ford, Toyota).
+- ``model:`` El modelo específico del vehículo (por ejemplo, F-150, Camry).
+- ``year:`` El año en que se fabricó el vehículo.
+- ``mileage:`` La distancia total que ha recorrido el vehículo, expresada en millas.
+- ``engine_hp:`` La potencia del motor del vehículo, en caballos de fuerza (horsepower).
+- ``transmission:`` El tipo de transmisión (Automática o Manual).
+- ``fuel_type:`` El tipo de combustible que utiliza el vehículo (por ejemplo, Gasolina, Diésel, Eléctrico).
+- ``drivetrain:`` El tipo de tracción del vehículo (por ejemplo, FWD - Tracción Delantera, RWD - Tracción Trasera, AWD - Tracción Total).
+- ``body_type:`` El estilo de la carrocería del vehículo (por ejemplo, SUV, Sedán, Camioneta Pick-up).
+- ``exterior_color:`` El color principal del exterior del vehículo.
+- ``interior_color:`` El color principal del interior del vehículo.
+- ``owner_count:`` El número de dueños anteriores que ha tenido el vehículo.
+- ``accident_history:`` El historial de accidentes registrado del vehículo (Ninguno, Menor o Mayor).
+- ``seller_type:`` El tipo de entidad que vende el vehículo (Concesionario o Particular).
+- ``condition:`` La condición general del vehículo (Excelente, Buena o Regular).
+- ``trim:`` El nivel de equipamiento específico del modelo del vehículo.
+- ``vehicle_age:`` La antigüedad del vehículo en años, calculada como Año Actual - Year.
+- ``mileage_per_year:`` El promedio de millas que el vehículo fue conducido por año.
+- ``brand_popularity:`` Una puntuación que representa la popularidad de la marca según su frecuencia en el conjunto de datos.
+- ``price:`` El precio de venta del vehículo usado en USD (Dólares Estadounidenses).
+ 
+Fuente: [Automotive Price Prediction Dataset](https://www.kaggle.com/datasets/metawave/vehicle-price-prediction).
 
 ---
 
