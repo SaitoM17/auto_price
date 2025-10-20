@@ -10,10 +10,11 @@ Este proyecto realiza un análisis [exploratorio / predictivo / descriptivo] de 
 - [🎯 Propósito](#-propósito)
 - [📦 Conjunto de Datos](#-conjunto-de-datos)
 - [🧪 Desarrollo del Proyecto](#-desarrollo-del-proyecto)
-- [📈 Conclusiones y Recomendaciones](#-conclusiones-y-recomendaciones)
+- [💡 Insights Claves](#-insights-claves)
 - [🛠️ Tecnologías](#️-tecnologías)
 - [⚙️ Instalación](#️-instalación)
 - [👤 Autor](#-autor)
+- [📝 Licencia](#-licencia)
 
 ---
 
@@ -58,7 +59,7 @@ Fuente: [Nombre de la fuente o “datos simulados/ficticios”].
 
 ---
 
-## 📈 Conclusiones y Recomendaciones
+## 💡 Insights Claves
 
 - [Insight 1]
 - [Insight 2]
