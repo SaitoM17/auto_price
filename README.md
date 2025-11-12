@@ -21,7 +21,7 @@ En este proyecto se presetan un análisis exploratorio de datos y la implementac
 
 ## 🎯 Propósito
 
-El objetivo de este proyecto es [objetivo general del análisis], con el fin de [impacto esperado, decisiones que se tomarán, etc.].
+El propósito de este proyecto es explorar cómo variables como marca, año, kilometraje y potencia afectan el valor de un vehículo. Esto como un caso de estudio educativo y profesional, integrando las etapas clave del ciclo de análisi de datos: recolección, limpieza, análisis, modelado y visualización.
 
 ---
 
