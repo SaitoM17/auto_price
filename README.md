@@ -56,7 +56,7 @@ Fuente: [Automotive Price Prediction Dataset](https://www.kaggle.com/datasets/me
 
 ## 🧪 Desarrollo del Proyecto
 
-### 1. **Carga y exploración inicial de los datos**:
+### 1. **Carga y exploración inicial de los datos(Limpieza)**:
 Como primer paso para el desarrollo del proyecto se realizo la descarga del conjunto de datos por medio del siguiente script:
 ```Python
 import pandas as pd
