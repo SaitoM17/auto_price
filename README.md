@@ -153,12 +153,160 @@ Cantidad de valores nulos después de imputar: 0
 ```
  Una vez que se han corregido los problemas con el conjunto de datos se guarda el conjuntos limpio en la siguiente dirección `../data/processed/vehicle_price.csv`.
 
+### 2. **Análisis exploratorio de datos (EDA)**:
+Con el conjunto de datos limpio podemos empezar a realizar un análisis exploratorio más profundo que nos ayude a comprender el cómo variables como marca, año, kilometraje, potencia, etc.. pueden llegar afectan el valor de un vehículo, la relación entre el desgastes y los años del vehículo así como el patron de uso y su comportamiento en el mercado.
 
-2. **Limpieza y preprocesamiento**:
-   - Manejo de valores nulos, duplicados, formatos y conversiones de fechas.
+Para esto realizamos una correlación que nos ayudara a vizualizar las variables que más se correlacionan.
+![Martriz de correlación](reports/figures/Matriz_correlacion_precio.png)
 
-3. **Análisis exploratorio de datos (EDA)**:
-   - [Ej. Distribución, correlaciones, agrupaciones, etc.]
+Las columnas correlacionadas con mayor relevancia son:
+- Price y year: 0.66
+- price y engine_hp: 0.65
+- mileage_per_year y mileage: 0.60
+- vehicle_age y mileage: 0.78
+- vehicle_age y owner_count: 0.65
+- ower_count y mileage: 0.51
+
+En base a estas correlaciones responderemos a las siguientes preguntas.
+
+#### **Precio Vs Año**
+**¿Cuál es el precio promedio de los vehículos para cada año de fabricación presente en el conjunto de datos?**
+La siguiente listas muestra como ha ido evolucionando el precio de los vehículos a lo largo de los años. 
+```Bash
+Año      Precio Promedio
+2000        $2905.55   
+2001        $1884.48   
+2002        $2018.76   
+2003        $1979.12   
+2004        $2281.11   
+2005        $2726.74   
+2006        $3086.62   
+2007        $3550.47   
+2008        $4157.68   
+2009        $4923.88   
+2010        $5896.97   
+2011        $6996.29   
+2012        $8328.50   
+2013        $9867.73   
+2014        $11602.28  
+2015        $13687.58  
+2016        $15807.08  
+2017        $18080.29  
+2018        $20554.71  
+2019        $23123.00  
+2020        $25946.04  
+2021        $28731.71  
+2022        $31898.80  
+2023        $35301.98  
+2024        $39009.84  
+2025        $39425.81  
+```
+Durante los años 2000 al 2013 la diferencia de precio promedio de los vehículos no era tan grande, pero a partir del 2014 hasta el 2025 la diferencia de precio incremento haciendo que cada año vaya en aumento el precio de los vehículos.
+
+**¿Cómo se distribuyen los precios de los vehículos más nuevos (por ejemplo, últimos 5 años) en comparación con los más antiguos?**
+![Comparación de Distribución del precio](reports/figures/Comparacion_distribuicion_precios.png)
+En ambos gráficos se muestran que el precio de los vehículos sigue una distribución sesgada a la derecha (positiva). Esto significa que la mayoría de las transacciones ocurren en los precios más bajos, y una minoría de vehículos de lujo o especiales eleva el precio promedio, extendiendo la distribución hacia la derecha.
+
+**¿Existe un punto a partir del cual el aumento en el año de fabricación (vehículo más nuevo) ya no se traduce en un incremento significativo en el precio?**
+![Relación entre el año de fabricación y el precio del vehículo](reports/figures/Relacion_annio_fabricacion_precio_vehiculo.png)
+El punto de inflexión o saturación para el precio máximo del vehículo ocurre a partir del año de fabricación 2023. Esto significa que:
+* Un modelo 2025 no tiene un techo de precio significativamente mayor que un modelo 2023.
+* El valor marginal de ser un año más nuevo es cercano a cero para el segmento de vehículos de precio más alto (lujo o gama alta) a partir de 2023.
+
+#### **Precio vs. Potencia del Motor**
+**¿Cuál es el rango de potencia del motor más común para los vehículos con un precio superior al percentil 75?**
+```Bash
+Percentil 75: $27601.40
+Potencia del motor de Vehículos con un Precio Superior al percentil 75 ($27601.40)
+engine_hp(Maxima): 576 
+engine_hp(Minima): 90
+```
+El rango de potencia del motor más común de vehículo con un precio superior al percentil 75 va de ``90`` a ``576`` hp.
+
+**¿Cómo varía el precio promedio (price) de los vehículos al agruparlos en cuartiles (Q1, Q2, Q3, Q4) basados en la potencia de su motor (engine_hp)?**
+```Bash
+Percentiles Potencia de Motor
+0.25    162.0
+0.50    215.0
+0.75    300.0
+Name: engine_hp, dtype: float64
+
+Precio Promedio de los Vehículos
+Bajo(< 162):             $11407.64  
+Bajo - Medio(162 < 215): $14809.71  
+Medio - Alto(215 < 300): $22123.70  
+Alto(> 300):             $33249.04
+```
+El factor "potencia del motor" no solo influye en el precio, sino que su impacto se acelera a medida que la potencia aumenta. El costo marginal de añadir caballos de fuerza es significativamente mayor en el segmento superior que en el segmento inferior.
+
+**¿Qué tipo de carrocería (body_type) o marca (make) tiene la mayor correlación entre engine_hp y price?**
+```Bash
+El tipo de Marca con la correlación es: Kia
+Valor de la correlación: 0.081982
+```
+La marca que tiene más correlación entre engine_hp y price es la marca de KIA, esto quiere decir que a medida que aumenta la potencia (engine_hp), también aumenta el precio (price).
+
+#### **Antigüedad del Vehículo vs. Kilometraje**
+**¿Cómo se comporta la tasa de kilometraje por año (mileage_per_year) en función de la antigüedad del vehículo? ¿Los vehículos más antiguos tienden a tener una mileage_per_year menor o mayor?**
+![Tasa de kilometraje](reports/figures/Tasa_kilometraje_vs_antiguedad_vehiculo.png)
+La gráfica muestra una tendencia descendente de mileage_per_year conforme aumenta la antigüedad del vehículo.
+Esto significa que:
+
+* Vehículos más nuevos (baja vehicle_age) → tienen un kilometraje anual más alto.
+* Vehículos más antiguos (alta vehicle_age) → tienen un kilometraje anual más bajo.
+
+En otras palabras, los vehículos más antiguos tienden a ser usados menos cada año.
+
+**Para cada categoría de condición (condition), ¿cuál es la mileage promedio de los vehículos con más de 10 años de antigüedad?**
+```Bash
+Condición   Promedio de kilometro
+Good                    178991.92
+Fair                    178716.14
+Excellent               178491.63
+```
+Entre los vehículos con más de 10 años de antigüedad, el kilometraje promedio es similar entre las distintas condiciones ("Excellent", "Good", "Fair"). Esto sugiere que la condición del vehículo no depende únicamente del kilometraje acumulado, sino también del mantenimiento y el uso que ha recibido.
+
+**¿Qué tipo de tracción (drivetrain) o tipo de combustible (fuel_type) muestra la mileage más alta para un vehículo con una antigüedad determinada?**
+```Bash
+Tipo de Tracción     Kilometraje Promedio
+FWD                             150044.65
+AWD                             149838.75
+RWD                             149779.97
+Tipo de Combustible  Kilometraje Promedio
+Electric                        150099.06
+Diesel                          149860.65
+Gasoline                        149667.40
+```
+Para vehículos con 10 años de antigüedad, el tipo de tracción FWD presenta el mayor kilometraje promedio acumulado, seguido por AWD y RWD. En cuanto al tipo de combustible, los vehículos eléctricos muestran la mileage promedio más alta, seguidos por los vehículos diésel y gasolina.
+
+#### **Antigüedad del Vehículo vs. Conteo de Dueños**
+**¿Cuál es la antigüedad promedio de los vehículos que han tenido tres o más dueños?**
+```Bash
+La antiguedad promedio de vehiculos con 3 o más dueños es de: 9.01 años
+```
+Los vehículos que han pasado por 3 o más dueños tienen una antigüedad promedio de ≈ 9 años. Esto tiene sentido: mientras más años tenga un vehículo, más probable es que haya cambiado de propietario varias veces.
+
+**¿Cómo se distribuye la antigüedad del vehículo en los vehículos con un owner_count de 1 (un solo dueño) en comparación con aquellos con un owner_count alto?**
+![Distribución de la antiguedad del vehículo](reports\figures\distribución_de_la_antiguedad_del_vehiculo.png)
+Los vehículos con un solo dueño tienden a ser más nuevos y con menor variación en su antigüedad. Conforme aumenta el número de propietarios, la antigüedad promedio del vehículo incrementa y la distribución se vuelve más amplia. Esto sugiere que los vehículos con mayor cantidad de dueños tienden a haber sido utilizados por más tiempo y presentan historiales más variados.
+
+#### **Kilometraje por Año vs. Kilometraje Total**
+**¿Cuál es la mileage_per_year promedio de los vehículos clasificados en el 25% superior de mileage total?**
+```Bash
+Kilometraje total (percentil 75): 157865.00
+Promedio de mileage_per_year del 25% superior: 19098.50
+```
+Los vehículos que se encuentran en el 25% superior de kilometraje total muestran una tasa de kilometraje anual mayor. Esto indica que fueron utilizados de manera más intensiva a lo largo de su vida útil, probablemente debido a desplazamientos frecuentes, viajes largos o uso continuo.
+
+#### **Conteo de Dueños vs. Kilometraje Total**
+**¿Cuál es el kilometraje promedio de los vehículos según el número de dueños anteriores?**
+![Kilometraje promedio segun número de dueños](reports/figures/kilometraje_promedio_segun_numero_duenios.png)
+Cuantos más dueños ha tenido un vehículo, mayor es el kilometraje promedio acumulado.
+
+**¿Cómo se diferencia el kilometraje de los vehículos vendidos por un Concesionario (seller_type) en función del número de dueños que han tenido?**
+![Kilometraje promedio por dueños(solo consencionarios)](reports/figures/kilometraje_promedio_segun_numero_duenios_solo_concensionarios.png)
+En los concesionarios, los vehículos con más dueños previos tienden a tener un kilometraje mucho más alto.
+Esto sugiere que los autos que han pasado por más manos tienden a haber sido utilizados más intensamente o tener más años de servicio.
 
 4. **Visualización de datos**:
    - Uso de gráficos de barras, líneas, cajas, dispersión y mapas de calor.
