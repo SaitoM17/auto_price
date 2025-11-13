@@ -287,7 +287,7 @@ La antiguedad promedio de vehiculos con 3 o más dueños es de: 9.01 años
 Los vehículos que han pasado por 3 o más dueños tienen una antigüedad promedio de ≈ 9 años. Esto tiene sentido: mientras más años tenga un vehículo, más probable es que haya cambiado de propietario varias veces.
 
 **¿Cómo se distribuye la antigüedad del vehículo en los vehículos con un owner_count de 1 (un solo dueño) en comparación con aquellos con un owner_count alto?**
-![Distribución de la antiguedad del vehículo](reports\figures\distribución_de_la_antiguedad_del_vehiculo.png)
+![Distribución de la antiguedad del vehículo](reports/figures/distribución_de_la_antiguedad_del_vehiculo.png)
 Los vehículos con un solo dueño tienden a ser más nuevos y con menor variación en su antigüedad. Conforme aumenta el número de propietarios, la antigüedad promedio del vehículo incrementa y la distribución se vuelve más amplia. Esto sugiere que los vehículos con mayor cantidad de dueños tienden a haber sido utilizados por más tiempo y presentan historiales más variados.
 
 #### **Kilometraje por Año vs. Kilometraje Total**
