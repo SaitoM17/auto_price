@@ -56,7 +56,7 @@ Fuente: [Automotive Price Prediction Dataset](https://www.kaggle.com/datasets/me
 
 ## 🧪 Desarrollo del Proyecto
 
-### 1. **Carga y exploración inicial de los datos(Limpieza)**:
+### 1. **Carga y exploración inicial de los datos(Limpieza)**
 Como primer paso para el desarrollo del proyecto se realizo la descarga del conjunto de datos por medio del siguiente script:
 ```Python
 import pandas as pd
@@ -153,7 +153,7 @@ Cantidad de valores nulos después de imputar: 0
 ```
  Una vez que se han corregido los problemas con el conjunto de datos se guarda el conjuntos limpio en la siguiente dirección `../data/processed/vehicle_price.csv`.
 
-### 2. **Análisis exploratorio de datos (EDA)**:
+### 2. **Análisis exploratorio de datos (EDA)**
 Con el conjunto de datos limpio podemos empezar a realizar un análisis exploratorio más profundo que nos ayude a comprender el cómo variables como marca, año, kilometraje, potencia, etc.. pueden llegar afectan el valor de un vehículo, la relación entre el desgastes y los años del vehículo así como el patron de uso y su comportamiento en el mercado.
 
 Para esto realizamos una correlación que nos ayudara a vizualizar las variables que más se correlacionan.
@@ -308,11 +308,34 @@ Cuantos más dueños ha tenido un vehículo, mayor es el kilometraje promedio ac
 En los concesionarios, los vehículos con más dueños previos tienden a tener un kilometraje mucho más alto.
 Esto sugiere que los autos que han pasado por más manos tienden a haber sido utilizados más intensamente o tener más años de servicio.
 
-4. **Visualización de datos**:
-   - Uso de gráficos de barras, líneas, cajas, dispersión y mapas de calor.
+### 3. **Modelo de Regresión Lineal — Predicción de Precio de Vehículos Usados**
+Se desarrolló un modelo de regresión supervisada utilizando la técnica de Regresión Lineal con el objetivo de predecir el precio de venta de vehículos usados a partir de variables como la antigüedad, kilometraje, tipo de combustible, potencia del motor, tipo de transmisión, número de dueños, entre otras características relevantes.
 
-5. **Modelado o reportes (opcional)**:
-   - [Si aplica: modelos de ML, clustering, predicciones, etc.]
+El modelo fue entrenado con un conjunto de datos dividido en 80% para entrenamiento y 20% para prueba, aplicando técnicas de preprocesamiento (codificación de variables categóricas y escalado de variables numéricas).
+
+***Resultados de Desempeño***
+```Bash
+MAE: 3174.71
+MSE: 18911377.31
+R²: 0.899
+```
+El modelo presenta un buen nivel de ajuste, con un R² de 0.899, lo que indica que las variables incluidas explican gran parte de la variación en los precios.
+El error medio (MAE ≈ 3,175 USD) es razonable considerando los rangos de precio del conjunto de datos, lo cual sugiere que el modelo tiene un desempeño sólido para una primera aproximación sin optimización avanzada.
+
+![Precio Real Vs Precio Predicho](reports/figures/precioReal_vs_precioPredicho.png)
+El gráfico muestra una distribución coherente y un ajuste bastante sólido entre el precio real y el predicho:
+* La tendencia ascendente bien alineada con la línea roja indica que el modelo captura correctamente la relación general entre las variables.
+* Las zonas rojizas al final (valores altos) reflejan que el modelo tiende a subestimar ligeramente los precios más altos, lo cual es común en modelos de regresión lineal porque suavizan los extremos.
+* La escala de color por error absoluto agrega una lectura intuitiva: cuanto más oscuro o cálido el punto, mayor el error de predicción.
+
+![Distribución de los errores](reports/figures/distribución_de_los_errores_residuos.png)
+Para analizar el desempeño del modelo de regresión lineal en la predicción del precio de los vehículos, se generó un histograma de los errores (residuos), definidos como la diferencia entre el precio real y el precio predicho.
+
+La distribución de los errores muestra una forma aproximadamente normal centrada en cero, lo que indica que el modelo no presenta un sesgo sistemático al realizar las predicciones. Es decir, los errores positivos y negativos se distribuyen de manera equilibrada.
+
+La mayoría de los residuos se encuentran en un rango de ±10,000 USD, reflejando que el modelo logra una buena precisión en la estimación de precios. No obstante, se observa una ligera asimetría hacia el lado derecho de la distribución, lo que sugiere que el modelo tiende a subestimar algunos vehículos con precios más elevados.
+
+En conjunto, esta distribución de residuos, junto con las métricas de rendimiento (MAE: 3,174.71, MSE: 18,911,377.31, R²: 0.899), confirman que el modelo logra un ajuste sólido y generaliza correctamente dentro de los valores del conjunto de datos.
 
 6. **Conclusiones y recomendaciones**:
    - Síntesis de hallazgos clave y propuestas de acción.
