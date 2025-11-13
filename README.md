@@ -337,9 +337,6 @@ La mayoría de los residuos se encuentran en un rango de ±10,000 USD, reflejand
 
 En conjunto, esta distribución de residuos, junto con las métricas de rendimiento (MAE: 3,174.71, MSE: 18,911,377.31, R²: 0.899), confirman que el modelo logra un ajuste sólido y generaliza correctamente dentro de los valores del conjunto de datos.
 
-6. **Conclusiones y recomendaciones**:
-   - Síntesis de hallazgos clave y propuestas de acción.
-
 ---
 
 ## 💡 Insights Claves
