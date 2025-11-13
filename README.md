@@ -11,6 +11,7 @@ En este proyecto se presetan un análisis exploratorio de datos y la implementac
 - [🎯 Propósito](#-propósito)
 - [📦 Conjunto de Datos](#-conjunto-de-datos)
 - [🧪 Desarrollo del Proyecto](#-desarrollo-del-proyecto)
+- [📌 Vista previa del dashboard](#-vista-previa-del-dashboard)
 - [💡 Insights Claves](#-insights-claves)
 - [🛠️ Tecnologías](#️-tecnologías)
 - [⚙️ Instalación](#️-instalación)
@@ -336,6 +337,12 @@ La distribución de los errores muestra una forma aproximadamente normal centrad
 La mayoría de los residuos se encuentran en un rango de ±10,000 USD, reflejando que el modelo logra una buena precisión en la estimación de precios. No obstante, se observa una ligera asimetría hacia el lado derecho de la distribución, lo que sugiere que el modelo tiende a subestimar algunos vehículos con precios más elevados.
 
 En conjunto, esta distribución de residuos, junto con las métricas de rendimiento (MAE: 3,174.71, MSE: 18,911,377.31, R²: 0.899), confirman que el modelo logra un ajuste sólido y generaliza correctamente dentro de los valores del conjunto de datos.
+
+---
+
+## 📌 Vista previa del dashboard
+
+
 
 ---
 
