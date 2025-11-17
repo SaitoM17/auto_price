@@ -349,9 +349,23 @@ En conjunto, esta distribución de residuos, junto con las métricas de rendimie
 
 ## 💡 Insights Claves
 
-- [Insight 1]
-- [Insight 2]
-- [Recomendación práctica o estratégica basada en los datos]
+- El año dejó de ser un impulsor de precio en los modelos más recientes.
+
+    Aunque el precio crece de forma constante con el año de fabricación, a partir de 2023 se observa un punto de saturación: los modelos 2023–2025 no incrementan su valor al ritmo esperado. Esto señala que la “novedad” ya no es un factor decisivo en el segmento alto; ahora importan otras características como equipamiento, potencia o prestigio de la marca.
+
+- La potencia del motor es el diferenciador más fuerte del precio.
+
+El comportamiento del price frente a engine_hp es escalonado:
+    - En autos económicos, más HP incrementa el precio ligeramente.
+    - En autos de gama media-alta, el impacto sube rápido.
+    - En el segmento premium (>300 HP), el precio se dispara.
+    
+    El salto entre motores de 215 HP y >300 HP supera los $11,000 USD, confirmando que la potencia es un indicador determinante del segmento y del valor del vehículo.
+
+- Más dueños equivale a mayor desgaste acumulado.
+
+    Los vehículos con 3+ dueños tienen una antigüedad promedio cercana a 9 años, mayor kilometraje y una dispersión más amplia tanto en antigüedad como en uso. Incluso en concesionarios, los autos con más propietarios previos muestran los kilometrajes más altos.
+    Esto refuerza que el owner_count funciona como un marcador indirecto de desgaste y uso histórico, más allá del kilometraje o el año del vehículo.
 
 ---
 
