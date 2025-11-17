@@ -355,11 +355,11 @@ En conjunto, esta distribución de residuos, junto con las métricas de rendimie
 
 - La potencia del motor es el diferenciador más fuerte del precio.
 
-El comportamiento del price frente a engine_hp es escalonado:
+    El comportamiento del price frente a engine_hp es escalonado:
 
-    * En autos económicos, más HP incrementa el precio ligeramente.
-    * En autos de gama media-alta, el impacto sube rápido.
-    * En el segmento premium (>300 HP), el precio se dispara. El salto entre motores de 215 HP y >300 HP supera los $11,000 USD, confirmando que la potencia es un indicador determinante del segmento y del valor del vehículo.
+        * En autos económicos, más HP incrementa el precio ligeramente.
+        * En autos de gama media-alta, el impacto sube rápido.
+        * En el segmento premium (>300 HP), el precio se dispara. El salto entre motores de 215 HP y >300 HP supera los $11,000 USD, confirmando que la potencia es un indicador determinante del segmento y del valor del vehículo.
 
 - Más dueños equivale a mayor desgaste acumulado.
 
