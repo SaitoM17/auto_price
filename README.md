@@ -357,9 +357,6 @@ En conjunto, esta distribución de residuos, junto con las métricas de rendimie
 
     El comportamiento del price frente a engine_hp es escalonado:
 
-        * En autos económicos, más HP incrementa el precio ligeramente.
-        * En autos de gama media-alta, el impacto sube rápido.
-      
 
 - Más dueños equivale a mayor desgaste acumulado.
 
