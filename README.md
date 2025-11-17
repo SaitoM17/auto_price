@@ -342,7 +342,8 @@ En conjunto, esta distribución de residuos, junto con las métricas de rendimie
 
 ## 📌 Vista previa del dashboard
 
-
+![Vista 1 del Dashboard](Dashboard\Dashboard_vista_1.png)
+![Vista 2 del Dashboard](Dashboard\Dashboard_vista_2.png)
 
 ---
 
